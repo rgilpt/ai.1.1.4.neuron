@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://duo6bhhxu8x45"]
+
+[ext_resource type="PackedScene" uid="uid://c8ctrjgvq4jy1" path="res://scenes/input_data.tscn" id="1_qcnn5"]
+[ext_resource type="Script" path="res://scenes/workbench.gd" id="1_w2blh"]
+[ext_resource type="PackedScene" uid="uid://dpqvsnh5v5wyi" path="res://scenes/link.tscn" id="2_kmdqv"]
+[ext_resource type="PackedScene" uid="uid://w4rwl0cdclhg" path="res://scenes/soma.tscn" id="3_112gs"]
+[ext_resource type="PackedScene" uid="uid://bbmjy4uggt0dk" path="res://scenes/activation_function.tscn" id="5_hfnmg"]
+
+[node name="Workbench" type="Node2D"]
+script = ExtResource("1_w2blh")
+
+[node name="InputData" parent="." instance=ExtResource("1_qcnn5")]
+position = Vector2(289, 139)
+
+[node name="InputData2" parent="." instance=ExtResource("1_qcnn5")]
+position = Vector2(292, 283)
+
+[node name="Link" parent="." instance=ExtResource("2_kmdqv")]
+position = Vector2(356, 139)
+
+[node name="Link2" parent="." instance=ExtResource("2_kmdqv")]
+position = Vector2(352, 282)
+
+[node name="Soma" parent="." instance=ExtResource("3_112gs")]
+position = Vector2(570, 186)
+
+[node name="ActivationFunction" parent="." instance=ExtResource("5_hfnmg")]
+position = Vector2(652, 183)
+
+[connection signal="value_changed" from="InputData" to="Link" method="_on_input_data_value_changed"]
+[connection signal="value_changed" from="InputData2" to="Link2" method="_on_input_data_value_changed"]
+[connection signal="value_changed" from="Link" to="Soma" method="_on_link_value_changed"]
+[connection signal="value_changed" from="Link2" to="Soma" method="_on_link_value_changed"]
+[connection signal="value_changed" from="Soma" to="ActivationFunction" method="_on_soma_value_changed"]

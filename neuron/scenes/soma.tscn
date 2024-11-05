@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://w4rwl0cdclhg"]
+
+[ext_resource type="Texture2D" uid="uid://inx44opkmckk" path="res://assets/AI_neuron_soma.png" id="1_jvuhf"]
+[ext_resource type="Script" path="res://scripts/soma.gd" id="2_kt4aw"]
+
+[node name="Soma" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_jvuhf")
+script = ExtResource("2_kt4aw")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -19.0
+offset_top = 29.0
+offset_right = 21.0
+offset_bottom = 52.0
